@@ -1,0 +1,36 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Search Results {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>Search Results</h1>
+
+    {% if books %}
+    <table class="bookTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Found {{ books|length }} book(s)</p>
+    {% else %}
+    <p>No books found matching your search criteria.</p>
+    {% endif %}
+
+    <a href="{% url 'books.search' %}">Back to Search</a>
+</div>
+{% endblock content %}

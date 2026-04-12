@@ -1,0 +1,323 @@
+/* ===== Main CSS for Links and Layout Customization ===== */
+
+/* QU Links Container */
+.qu-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Base QU Link Styling */
+.qu-link {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Green link - Red text on Green background */
+.qu-link-green {
+    background-color: #90EE90;
+    color: #FF0000;
+    text-align: center;
+}
+
+.qu-link-green:visited {
+    color: #CC0000;
+    background-color: #66DD66;
+}
+
+.qu-link-green:hover {
+    background-color: #66DD66;
+    color: #FF0000;
+    text-decoration: underline;
+}
+
+.qu-link-green:active {
+    background-color: #55CC55;
+    color: #BB0000;
+    text-decoration: underline;
+}
+
+/* Gray link - Yellow/Gold text on Dark Gray background */
+.qu-link-gray {
+    background-color: #505050;
+    color: #FFD700;
+    text-align: center;
+}
+
+.qu-link-gray:visited {
+    color: #FFED4E;
+    background-color: #404040;
+}
+
+.qu-link-gray:hover {
+    background-color: #404040;
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+.qu-link-gray:active {
+    background-color: #303030;
+    color: #FFED4E;
+    text-decoration: underline;
+}
+
+/* Black link - White/Light text on Black background */
+.qu-link-black {
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.qu-link-black:visited {
+    color: #CCCCCC;
+    background-color: #1A1A1A;
+}
+
+.qu-link-black:hover {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.qu-link-black:active {
+    background-color: #0D0D0D;
+    color: #CCCCCC;
+    text-decoration: underline;
+}
+
+/* Text Formatting Page */
+
+.formatting-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.formatting-title {
+    color: #008000;
+    background-color: #FFFF00;
+    padding: 20px;
+    text-align: center;
+    display: block;
+    margin: 0 0 30px 0;
+}
+
+.formatting-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.formatting-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.formatting-content b {
+    font-weight: bold;
+}
+
+.formatting-content strong {
+    font-weight: bold;
+}
+
+.formatting-content i {
+    font-style: italic;
+}
+
+.formatting-content em {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formatting-content small {
+    font-size: 0.8em;
+}
+
+.formatting-content mark {
+    background-color: #FFFF00;
+    color: #000000;
+    padding: 2px 4px;
+}
+
+.formatting-content del {
+    text-decoration: line-through;
+    color: #666666;
+}
+
+.formatting-content ins {
+    text-decoration: underline;
+    color: #008000;
+}
+
+.formatting-content sub {
+    vertical-align: sub;
+    font-size: 0.8em;
+}
+
+.formatting-content sup {
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+/* General styles for index page */
+
+.library-heading {
+    color: blue;
+}
+
+.library-paragraph {
+    color: white;
+    background-color: black;
+}
+
+/* Listing page styles */
+
+.listing-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.listing-title {
+    color: #FFFFFF;
+    background-color: #4a9b9e;
+    padding: 20px;
+    text-align: center;
+    display: block;
+    margin: 0 0 30px 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.listing-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.listing-content h2 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.listing-content ul,
+.listing-content ol {
+    margin-left: 20px;
+}
+
+.listing-content li {
+    margin: 5px 0;
+}
+
+/* Tables page styles */
+
+.tables-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-section {
+    margin-bottom: 50px;
+}
+
+.table-heading {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Simple Table Styling */
+.simple-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid #333;
+}
+
+.simple-table th,
+.simple-table td {
+    border: 1px solid #333;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.simple-table th {
+    background-color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.simple-table td {
+    text-align: center;
+}
+
+.simple-table .total-row {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+/* Complex Table Wrapper */
+.complex-table-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.table-image {
+    flex-shrink: 0;
+}
+
+.table-image img {
+    width: 250px;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.table-content {
+    flex-grow: 1;
+}
+
+.table-content h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Complex Table Styling */
+.complex-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #333;
+}
+
+.complex-table th,
+.complex-table td {
+    border: 1px solid #333;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.complex-table th {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.complex-table td {
+    background-color: #fff;
+}

@@ -1,0 +1,89 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="tables-container">
+    <div class="table-section">
+        <h2 class="table-heading">Table 1: Table of Fruits and Their Prices</h2>
+        <table class="simple-table">
+            <thead>
+                <tr>
+                    <th>Fruit</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apple</td>
+                    <td>$0.25</td>
+                </tr>
+                <tr>
+                    <td>Orange</td>
+                    <td>$0.50</td>
+                </tr>
+                <tr>
+                    <td>Banana</td>
+                    <td>$1.00</td>
+                </tr>
+                <tr>
+                    <td>Pineapple</td>
+                    <td>$2.00</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total</strong></td>
+                    <td><strong>$3.75</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-section">
+        <h2 class="table-heading">Table 2: A more complex sample table</h2>
+        <div class="complex-table-wrapper">
+            <div class="table-image">
+                <img src="{% static 'images/desert.jpg' %}" alt="Desert landscape">
+            </div>
+            <div class="table-content">
+                <h3>Camelid comparison<br>Approximate as of 6/2011</h3>
+                <table class="complex-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th># of humps</th>
+                            <th>Indigenous region</th>
+                            <th>Spits?</th>
+                            <th>Produces wool?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dromedary</strong></td>
+                            <td>1</td>
+                            <td>Arabian Peninsula</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camels (bactrian)</strong></td>
+                            <td>2</td>
+                            <td>Africa/Asia</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Llamas</strong></td>
+                            <td>1</td>
+                            <td>Andes Mountains</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
