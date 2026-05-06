@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.db.models import Avg, Count, F, Max, Min, Q, Sum
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Book, Student
 
 def __getBooksList():
  book1 = {'id':12344321, 'title':'Continuous Delivery', 'author':'J.Humble and D. Farley'}
@@ -8,9 +11,9 @@ def __getBooksList():
  return [book1, book2, book3]
 
 def index(request):
-    name = request.GET.get("name") or "world!" 
-    
-    return render(request, "bookmodule/index.html", {"name": name}) 
+    name = request.GET.get("name") or "world!"
+
+    return render(request, "bookmodule/index.html", {"name": name})
 def index2(request, val1=0):
     return HttpResponse("value1 = " + str(val1))
 
@@ -60,3 +63,92 @@ def search(request):
    if contained: newBooks.append(item)
   return render(request, 'bookmodule/bookList.html', {'books':newBooks})
  return render(request, 'bookmodule/search.html')
+
+def simple_query(request):
+    mybooks = Book.objects.filter(title__icontains="and")
+    return render(request, "bookmodule/bookList.html", {"books": mybooks})
+
+
+def lookup_query(request):
+    mybooks = (
+        Book.objects.filter(author__isnull=False)
+        .filter(title__icontains="and")
+        .filter(edition__gte=2)
+        .exclude(price__lte=100)[:10]
+    )
+    if len(mybooks) >= 1:
+        return render(request, "bookmodule/bookList.html", {"books": mybooks})
+    return render(request, "bookmodule/index.html")
+
+
+def lab8_task1(request):
+    books = Book.objects.filter(Q(price__lte=80))
+    return render(
+        request,
+        "bookmodule/lab8_book_list.html",
+        { "books": books},
+    )
+
+
+def lab8_task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=3)
+        & (Q(title__icontains="qu") | Q(author__icontains="qu"))
+    )
+    return render(
+        request,
+        "bookmodule/lab8_book_list.html",
+        {
+
+            "books": books,
+        },
+    )
+
+
+def lab8_task3(request):
+    combined_q = Q(edition__gt=3) & (
+        Q(title__icontains="qu") | Q(author__icontains="qu")
+    )
+    books = Book.objects.filter(~combined_q)
+    return render(
+        request,
+        "bookmodule/lab8_book_list.html",
+        { "books": books},
+    )
+
+
+def lab8_task4(request):
+    books = Book.objects.order_by("title")
+    return render(
+        request,
+        "bookmodule/lab8_book_list.html",
+        { "books": books},
+    )
+
+
+def lab8_task5(request):
+    stats = Book.objects.aggregate(
+        book_count=Count("id"),
+        total_price=Sum("price"),
+        avg_price=Avg("price"),
+        max_price=Max("price"),
+        min_price=Min("price"),
+    )
+    return render(
+        request,
+        "bookmodule/lab8_aggregates.html",
+        { "stats": stats},
+    )
+
+
+def lab8_task7(request):
+    city_counts = (
+        Student.objects.values(city=F("address__city"))
+        .annotate(count=Count("id"))
+        .order_by("city")
+    )
+    return render(
+        request,
+        "bookmodule/lab8_city_counts.html",
+        { "city_counts": city_counts},
+    )

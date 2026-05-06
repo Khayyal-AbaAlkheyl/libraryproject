@@ -8,24 +8,10 @@
     <h1>Search Results</h1>
 
     {% if books %}
-    <table class="bookTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Author</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% for obj in books %}
+    ID: {{ obj.id }}, Title: {{ obj.title }}
+    <hr>
+    {% endfor %}
     <p>Found {{ books|length }} book(s)</p>
     {% else %}
     <p>No books found matching your search criteria.</p>

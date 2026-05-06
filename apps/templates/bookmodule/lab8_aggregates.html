@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} {{ heading }} {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    
+
+    <table border="1" cellpadding="6">
+        <tbody>
+            <tr><th>Number of books</th><td>{{ stats.book_count }}</td></tr>
+            <tr><th>Total price</th><td>{{ stats.total_price|default:"—" }}</td></tr>
+            <tr><th>Average price</th><td>{{ stats.avg_price|default:"—" }}</td></tr>
+            <tr><th>Maximum price</th><td>{{ stats.max_price|default:"—" }}</td></tr>
+            <tr><th>Minimum price</th><td>{{ stats.min_price|default:"—" }}</td></tr>
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'books.index' %}">Home</a></p>
+</div>
+{% endblock content %}
