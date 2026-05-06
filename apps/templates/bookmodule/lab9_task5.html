@@ -5,28 +5,28 @@
 
 {% block content %}
 <div class="bookListContainer">
-    {% if heading %}<h1>{{ heading }}</h1>{% endif %}
+    <h1>{{ heading }}</h1>
 
-    {% if city_counts %}
     <table border="1" cellpadding="6">
         <thead>
             <tr>
-                <th>City</th>
-                <th>Students</th>
+                <th>Publisher name</th>
+                <th>Highly rated books (count)</th>
+                <th>Total quantity (those books)</th>
             </tr>
         </thead>
         <tbody>
-            {% for row in city_counts %}
+            {% for p in publishers %}
             <tr>
-                <td>{{ row.city }}</td>
-                <td>{{ row.count }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.highly_rated_count }}</td>
+                <td>{{ p.highly_rated_qty }}</td>
             </tr>
+            {% empty %}
+            <tr><td colspan="3">No publishers.</td></tr>
             {% endfor %}
         </tbody>
     </table>
-    {% else %}
-    <p>No students in the database. Add Address and Student rows in the admin (or shell).</p>
-    {% endif %}
 
     <p><a href="{% url 'books.index' %}">Home</a></p>
 </div>

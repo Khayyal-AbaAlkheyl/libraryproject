@@ -1,0 +1,39 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} {{ heading }} {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>{{ heading }}</h1>
+
+    <table border="1" cellpadding="6">
+        <thead>
+            <tr>
+                <th>Publisher</th>
+                <th>Oldest pubdate</th>
+                <th>Oldest book</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.publisher.name }}</td>
+                <td>{{ row.oldest_date|default:"—" }}</td>
+                <td>
+                    {% if row.book %}
+                        {{ row.book.title }} (#{{ row.book.id }})
+                    {% else %}
+                        —
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">No publishers.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'books.index' %}">Home</a></p>
+</div>
+{% endblock content %}

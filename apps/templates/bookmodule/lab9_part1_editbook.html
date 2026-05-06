@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Edit book — Part 1 {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>Edit book #{{ book.id }}</h1>
+
+    {% if errors %}
+    <ul>
+        {% for err in errors %}
+        <li>{{ err }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <p>
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title" value="{{ title_val|default:'' }}" required>
+        </p>
+        <p>
+            <label for="author">Author</label><br>
+            <input type="text" name="author" id="author" value="{{ author_val|default:'' }}" required>
+        </p>
+        <p>
+            <label for="price">Price</label><br>
+            <input type="text" name="price" id="price" inputmode="decimal" value="{{ price_val|default:'' }}">
+        </p>
+        <p>
+            <label for="edition">Edition</label><br>
+            <input type="number" name="edition" id="edition" value="{{ edition_val|default:'1' }}">
+        </p>
+        <p>
+            <button type="submit">Update</button>
+            <a href="{% url 'books.lab10_part1_listbooks' %}">Back to list</a>
+        </p>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} {{ heading }} {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>{{ heading }}</h1>
+
+    <table border="1" cellpadding="6">
+        <thead>
+            <tr>
+                <th>Publisher</th>
+                <th>Avg price</th>
+                <th>Min price</th>
+                <th>Max price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in publishers %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{% if p.avg_price is not None %}{{ p.avg_price|floatformat:2 }}{% else %}—{% endif %}</td>
+                <td>{% if p.min_price is not None %}{{ p.min_price }}{% else %}—{% endif %}</td>
+                <td>{% if p.max_price is not None %}{{ p.max_price }}{% else %}—{% endif %}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No publishers.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'books.index' %}">Home</a></p>
+</div>
+{% endblock content %}

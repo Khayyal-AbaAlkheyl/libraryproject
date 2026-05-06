@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} {{ heading }} {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>{{ heading }}</h1>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <ul>
+            {% for err in form.non_field_errors %}
+            <li>{{ err }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% for field in form %}
+        <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+            {% for err in field.errors %}
+            <strong>{{ err }}</strong>
+            {% endfor %}
+        </p>
+        {% endfor %}
+        <p>
+            <button type="submit">Save</button>
+            <a href="{% url 'books.lab10_part2_listbooks' %}">Cancel</a>
+        </p>
+    </form>
+</div>
+{% endblock content %}

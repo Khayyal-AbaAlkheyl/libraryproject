@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Delete book — Part 1 {% endblock title %}
+
+{% block content %}
+<div class="bookListContainer">
+    <h1>Delete book</h1>
+    <p>Delete <strong>{{ book.title }}</strong> by {{ book.author }}?</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'books.lab10_part1_listbooks' %}">Cancel</a>
+    </form>
+</div>
+{% endblock content %}
