@@ -142,7 +142,7 @@ def lab8_task1(request):
     return render(
         request,
         "bookmodule/lab8_book_list.html",
-        {"heading": "Lab 8 Task 1 — Price ≤ 80 (using Q)", "books": books},
+        { "books": books},
     )
 
 
@@ -158,9 +158,7 @@ def lab8_task2(request):
         request,
         "bookmodule/lab8_book_list.html",
         {
-            "heading": (
-                "Lab 8 Task 2 — Rating > 3 and (title OR author name contains 'qu')"
-            ),
+
             "books": books,
         },
     )
@@ -175,7 +173,6 @@ def lab8_task3(request):
         request,
         "bookmodule/lab8_book_list.html",
         {
-            "heading": "Lab 8 Task 3 — Opposite of Task 8-2 (~ on combined Q)",
             "books": books,
         },
     )
@@ -188,7 +185,7 @@ def lab8_task4(request):
     return render(
         request,
         "bookmodule/lab8_book_list.html",
-        {"heading": "Lab 8 Task 4 — Books ordered by title", "books": books},
+        { "books": books},
     )
 
 
@@ -248,7 +245,7 @@ def lab9_task2(request):
     return render(
         request,
         "bookmodule/lab9_task2.html",
-        {"heading": "Lab 9 Task 2 — Total stock per publisher", "publishers": publishers},
+        { "publishers": publishers},
     )
 
 
@@ -266,7 +263,7 @@ def lab9_task3(request):
     return render(
         request,
         "bookmodule/lab9_task3.html",
-        {"heading": "Lab 9 Task 3 — Oldest book per publisher", "rows": rows},
+        { "rows": rows},
     )
 
 
@@ -280,7 +277,6 @@ def lab9_task4(request):
         request,
         "bookmodule/lab9_task4.html",
         {
-            "heading": "Lab 9 Task 4 — Price aggregates per publisher",
             "publishers": publishers,
         },
     )
@@ -299,7 +295,7 @@ def lab9_task5(request):
         request,
         "bookmodule/lab9_task5.html",
         {
-            "heading": "Lab 9 Task 5 — Highly rated books (rating ≥ 4)",
+
             "publishers": publishers,
             "high_rating_threshold": high,
         },
@@ -321,10 +317,7 @@ def lab9_task6(request):
         request,
         "bookmodule/lab9_task6.html",
         {
-            "heading": (
-                "Lab 9 Task 6 — Book count per publisher "
-                "(price > 50, 1 ≤ quantity < 5)"
-            ),
+            
             "publishers": publishers,
         },
     )
